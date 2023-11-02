@@ -1,0 +1,38 @@
+.subckt comparator M A0 A1 A2 A3 B0 B1 B2 B3 equal lesser greater node_x gnd
+    * Vdd node_x gnd 'SUPPLY'
+
+    X10 B0 B0comp node_x gnd NOT
+    X1 B1 B1comp node_x gnd NOT
+    X2 B2 B2comp node_x gnd NOT
+    X3 B3 B3comp node_x gnd NOT
+
+    X4 A0 B0comp G0 node_x gnd AND 
+    X5 A1 B1comp G1 node_x gnd AND 
+    X6 A2 B2comp G2 node_x gnd AND 
+    X7 A3 B3comp G3 node_x gnd AND
+
+    X8 G0 G1 G2 G3 greater_temp node_x gnd OR_4
+
+    X9 A0 A0comp node_x gnd NOT
+    X11 A1 A1comp node_x gnd NOT
+    X12 A2 A2comp node_x gnd NOT
+    X13 A3 A3comp node_x gnd NOT
+
+    X14 A0comp B0 L0 node_x gnd AND 
+    X15 A1comp B1 L1 node_x gnd AND 
+    X16 A2comp B2 L2 node_x gnd AND 
+    X17 A3comp B3 L3 node_x gnd AND
+
+    X18 L0 L1 L2 L3 lesser_temp node_x gnd OR_4
+
+    X19 A0 B0 E0 node_x gnd XNOR
+    X20 A1 B1 E1 node_x gnd XNOR
+    X21 A2 B2 E2 node_x gnd XNOR
+    X22 A3 B3 E3 node_x gnd XNOR
+
+    X23 E0 E1 E2 E3 equal_temp node_x gnd AND_4 
+
+    X24 equal_temp M equal node_x gnd AND
+    X25 lesser_temp M lesser node_x gnd AND
+    X26 greater_temp M greater node_x gnd AND
+.ends comparator

@@ -1,0 +1,7 @@
+.subckt fulladder node_a node_b node_c node_final_sum node_final_carry node_x gnd
+
+    X1 node_a node_b node_sum1 node_carry1 node_x gnd halfadder
+    X2 node_c node_sum1 node_final_sum node_carry2 node_x gnd halfadder
+
+    X3 node_carry1 node_carry2 node_final_carry node_x gnd OR
+.ends fulladder

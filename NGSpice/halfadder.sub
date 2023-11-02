@@ -1,0 +1,6 @@
+.subckt halfadder node_a node_b node_sum node_carry node_x gnd
+
+    X1 node_a node_b node_sum node_x gnd XOR
+    X2 node_a node_b node_carry node_x gnd AND
+
+.ends halfadder

@@ -1,0 +1,4 @@
+.subckt AND node_a node_b node_out node_x gnd
+    X1 node_a node_b node_c node_x gnd NAND
+    X2 node_c node_c node_out node_x gnd NAND
+.ends AND

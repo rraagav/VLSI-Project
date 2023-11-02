@@ -1,0 +1,74 @@
+.include TSMC_180nm.txt
+.include XOR.sub
+.include AND.sub
+.include AND_4.sub
+.include NOT.sub
+.include OR.sub
+.include OR_4.sub
+.include XNOR.sub
+.include NAND.sub
+.include enable.sub
+.include alu.sub
+.include addsub.sub
+.include halfadder.sub
+.include fulladder.sub
+.include comparator.sub
+.include andder.sub
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd node_x gnd 'SUPPLY'
+
+Vin_A0 A0 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+Vin_A1 A1 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+Vin_A2 A2 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+Vin_A3 A3 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+
+Vin_B0 B0 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+Vin_B1 B1 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+Vin_B2 B2 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+Vin_B3 B3 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+
+Vin_S0 S0 gnd PULSE(0 1.8 0ns 100ps 100ps 199ns 400ns)
+Vin_S1 S1 gnd PULSE(0 1.8 0ns 100ps 100ps 399ns 800ns)
+
+X1 S0 S1 D0 D1 D2 D3 node_x gnd alu
+
+X2 D0 D1 addsub_enable node_x gnd OR
+
+X3 addsub_enable A0 A1 A2 A3 B0 B1 B2 B3 A0_adder A1_adder A2_adder A3_adder B0_adder B1_adder B2_adder B3_adder node_x gnd enable
+
+X4 A0_adder A1_adder A2_adder A3_adder B0_adder B1_adder B2_adder B3_adder addsub_enable result0 result1 result2 result3 result4 node_x gnd addsub
+
+
+X5 D2 A0 A1 A2 A3 B0 B1 B2 B3 A0_comp A1_comp A2_comp A3_comp B0_comp B1_comp B2_comp B3_comp node_x gnd enable
+
+X6 D2 A0_comp A1_comp A2_comp A3_comp B0_comp B1_comp B2_comp B3_comp equal lesser greater node_x gnd comparator
+
+
+X7 D3 A0 A1 A2 A3 B0 B1 B2 B3 A0_and A1_and A2_and A3_and B0_and B1_and B2_and B3_and node_x gnd enable
+
+X8 A0_and A1_and A2_and A3_and B0_and B1_and B2_and B3_and answer0 answer1 answer2 answer3 node_x gnd andder
+
+.tran 1n 800n
+
+.control
+run
+* plot v(S1)+12 v(S0)+10 v(D0)+8 v(D1)+6 v(D2)+4 v(D3)+2
+plot v(result0)+8 v(result1)+6 v(result2)+4 v(result3)+2 v(result4)
+plot v(answer0)+8 v(answer1)+6 v(answer2)+4 v(answer3)+2
+plot v(equal)+8 v(lesser)+6 v(greater)+4
+
+.end
+.endc

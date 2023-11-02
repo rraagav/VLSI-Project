@@ -1,0 +1,11 @@
+.subckt alu A0 A1 D0 D1 D2 D3 node_x gnd
+
+    X1 A0 A0comp node_x gnd NOT
+    X2 A1 A1comp node_x gnd NOT
+
+    X3 A0comp A1comp D0 node_x gnd AND
+    X4 A0 A1comp D1 node_x gnd AND
+    X5 A0comp A1 D2 node_x gnd AND
+    X6 A0 A1 D3 node_x gnd AND
+
+.ends alu

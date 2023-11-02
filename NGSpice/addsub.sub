@@ -1,0 +1,16 @@
+.subckt addsub A0 A1 A2 A3 B0 B1 B2 B3 M result0 result1 result2 result3 result4 node_x gnd
+    * Vdd node_x gnd 'SUPPLY'
+
+    X1 B0 M node_b0mod node_x gnd XOR
+    X2 B1 M node_b1mod node_x gnd XOR
+    X3 B2 M node_b2mod node_x gnd XOR
+    X4 B3 M node_b3mod node_x gnd XOR
+
+    X5 A0 node_b0mod M result0 C1 node_x gnd fulladder
+    X6 A1 node_b1mod C1 result1 C2 node_x gnd fulladder
+    X7 A2 node_b2mod C2 result2 C3 node_x gnd fulladder
+    X8 A3 node_b3mod C3 result3 result4 node_x gnd fulladder
+
+.ends addsub
+
+

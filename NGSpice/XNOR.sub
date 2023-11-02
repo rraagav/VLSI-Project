@@ -1,0 +1,4 @@
+.subckt XNOR node_a node_b node_out node_x gnd
+    X1 node_a node_b node_c node_x gnd XOR
+    X2 node_c node_out node_x gnd NOT
+.ends XNOR

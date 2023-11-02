@@ -1,0 +1,13 @@
+.subckt enable M A0 A1 A2 A3 B0 B1 B2 B3 A0out A1out A2out A3out B0out B1out B2out B3out node_x gnd
+
+    X1 A0 M A0out node_x gnd AND
+    X2 A1 M A1out node_x gnd AND
+    X3 A2 M A2out node_x gnd AND
+    X4 A3 M A3out node_x gnd AND
+
+    X5 B0 M B0out node_x gnd AND
+    X6 B1 M B1out node_x gnd AND
+    X7 B2 M B2out node_x gnd AND
+    X8 B3 M B3out node_x gnd AND
+.ends enable
+
