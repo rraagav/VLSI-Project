@@ -1,4 +1,4 @@
-.subckt alu A0 A1 D0 D1 D2 D3 node_x gnd
+ojewaps].subckt alu A0 A1 D0 D1 D2 D3 node_x gnd
 
     X1 A0 A0comp node_x gnd NOT
     X2 A1 A1comp node_x gnd NOT

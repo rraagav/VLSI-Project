@@ -1,0 +1,8 @@
+* SPICE3 file created from not.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 A' A GND Gnd nfet w=6 l=3
++  ad=60 pd=32 as=42 ps=26
+M1001 A' A VDD Vdd pfet w=7 l=3
++  ad=70 pd=34 as=49 ps=28

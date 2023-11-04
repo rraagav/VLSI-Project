@@ -6,8 +6,7 @@ rect -9 1 16 17
 << ntransistor >>
 rect 2 -13 4 -9
 << ptransistor >>
-rect 2 7 4 11
-<< ndiffusion >>
+rect 2 7 4 11< ndiffusion >>
 rect 1 -13 2 -9
 rect 4 -13 5 -9
 << pdiffusion >>

@@ -65,7 +65,7 @@ X8 A0_and A1_and A2_and A3_and B0_and B1_and B2_and B3_and answer0 answer1 answe
 
 .control
 run
-* plot v(S1)+12 v(S0)+10 v(D0)+8 v(D1)+6 v(D2)+4 v(D3)+2
+plot v(S1)+12 v(S0)+10 v(D0)+8 v(D1)+6 v(D2)+4 v(D3)+2
 plot v(result0)+8 v(result1)+6 v(result2)+4 v(result3)+2 v(result4)
 plot v(answer0)+8 v(answer1)+6 v(answer2)+4 v(answer3)+2
 plot v(equal)+8 v(lesser)+6 v(greater)+4

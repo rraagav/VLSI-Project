@@ -1,0 +1,10 @@
+| units: 9 tech: scmos format: MIT
+n A GND (A.B)' 3 6 -2 -31
+p B (A.B)' VDD 6 7 21 2
+n B (A.B)' 6 6 21 -31
+p A VDD (A.B)' 3 7 -2 2
+R GND 39
+R (A.B)' 79
+R B 70
+R A 131
+R VDD 157
