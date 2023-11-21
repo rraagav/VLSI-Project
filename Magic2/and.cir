@@ -1,0 +1,67 @@
+* SPICE3 file created from and.ext - technology: scmos
+.include TSMC_180nm.txt
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd VDD gnd 'Supply'
+
+* Vin_A VA gnd DC(0)
+* Vin_B VB gnd DC(0)
+
+Vin_VA VA gnd PULSE(0 1.8 0ns 100ps 100ps 199ns 400ns)
+Vin_VB VB gnd PULSE(0 1.8 0ns 100ps 100ps 399ns 800ns)
+
+.option scale=0.09u
+
+M1000 VDD VB a_14_8# w_n2_0# CMOSP w=8 l=4
++  ad=232 pd=106 as=136 ps=50
+M1001 Vout a_14_8# GND Gnd CMOSN w=8 l=4
++  ad=48 pd=28 as=96 ps=56
+M1002 Vout a_14_8# VDD w_64_0# CMOSP w=8 l=4
++  ad=48 pd=28 as=0 ps=0
+M1003 a_14_8# VA VDD w_n2_0# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1004 a_14_n37# VA GND Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1005 a_14_8# VB a_14_n37# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+C0 a_14_8# Vout 0.03fF
+C1 VA a_14_8# 0.03fF
+C2 w_n2_0# VDD 0.05fF
+C3 w_64_0# VDD 0.03fF
+C4 GND Vout 0.03fF
+C5 a_14_8# VDD 0.03fF
+C6 w_n2_0# a_14_8# 0.03fF
+C7 w_64_0# a_14_8# 0.11fF
+C8 VA VB 0.10fF
+C9 w_n2_0# VB 0.11fF
+C10 VB a_14_8# 0.29fF
+C11 VDD Vout 0.03fF
+C12 w_64_0# Vout 0.03fF
+C13 w_n2_0# VA 0.11fF
+C14 GND Gnd 0.27fF
+C15 Vout Gnd 0.10fF
+C16 VDD Gnd 0.29fF
+C17 a_14_8# Gnd 0.55fF
+C18 VB Gnd 0.37fF
+C19 VA Gnd 0.32fF
+C20 w_64_0# Gnd 0.58fF
+C21 w_n2_0# Gnd 1.45fF
+
+.tran 1n 800n
+.control
+run
+plot v(Vout)+4 v(VB)+2 v(VA)
+.end
+.endc

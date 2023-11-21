@@ -1,0 +1,88 @@
+* SPICE3 file created from 4or.ext - technology: scmos
+.include TSMC_180nm.txt
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd VDD gnd 'Supply'
+
+* Vin_VD VD gnd DC(1.8)
+* Vin_VC VC gnd DC(1.8)
+* Vin_VB VB gnd DC(1.8)
+* Vin_VA VA gnd DC(1.8)
+
+Vin_VD VD gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+Vin_VC VC gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 60ns)
+Vin_VB VB gnd PULSE(0 1.8 0ns 100ps 100ps 40ns 80ns)
+Vin_VA VA gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 100ns)
+
+.option scale=0.09u
+
+M1000 Vout a_177_n75# GND Gnd CMOSN w=8 l=4
++  ad=48 pd=28 as=232 ps=106
+M1001 a_219_n7# VC a_198_n7# w_161_n15# CMOSP w=8 l=4
++  ad=136 pd=50 as=136 ps=50
+M1002 a_198_n7# VB a_177_n7# w_161_n15# CMOSP w=8 l=4
++  ad=0 pd=0 as=136 ps=50
+M1003 a_177_n7# VA VDD w_161_n15# CMOSP w=8 l=4
++  ad=0 pd=0 as=96 ps=56
+M1004 a_177_n75# VA GND Gnd CMOSN w=8 l=4
++  ad=272 pd=100 as=0 ps=0
+M1005 a_177_n75# VC GND Gnd CMOSN w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1006 a_177_n75# VD a_219_n7# w_161_n15# CMOSP w=8 l=4
++  ad=304 pd=92 as=0 ps=0
+M1007 GND VB a_177_n75# Gnd CMOSN w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1008 a_240_n75# VD a_177_n75# Gnd CMOSN w=8 l=4
++  ad=304 pd=92 as=0 ps=0
+M1009 Vout a_177_n75# VDD w_292_n15# CMOSP w=8 l=4
++  ad=48 pd=28 as=0 ps=0
+C0 VC a_177_n75# 0.10fF
+C1 w_161_n15# VDD 0.03fF
+C2 VB VC 0.40fF
+C3 VA VD 0.10fF
+C4 w_292_n15# a_177_n75# 0.11fF
+C5 w_161_n15# VC 0.11fF
+C6 VDD Vout 0.03fF
+C7 a_177_n75# GND 0.03fF
+C8 w_292_n15# Vout 0.03fF
+C9 VC VD 0.62fF
+C10 VB a_177_n75# 0.10fF
+C11 w_161_n15# a_177_n75# 0.03fF
+C12 VA VC 0.10fF
+C13 w_161_n15# VB 0.11fF
+C14 Vout GND 0.03fF
+C15 a_177_n75# Vout 0.03fF
+C16 VD a_177_n75# 0.81fF
+C17 w_292_n15# VDD 0.03fF
+C18 VB VD 0.10fF
+C19 VA VB 0.19fF
+C20 w_161_n15# VD 0.11fF
+C21 w_161_n15# VA 0.11fF
+C22 Vout Gnd 0.20fF
+C23 VDD Gnd 0.57fF
+C24 a_177_n75# Gnd 1.10fF
+C25 VD Gnd 0.66fF
+C26 VC Gnd 0.60fF
+C27 VB Gnd 0.55fF
+C28 VA Gnd 0.49fF
+C29 w_292_n15# Gnd 0.67fF
+C30 w_161_n15# Gnd 2.96fF
+
+.tran 1n 800n
+.control
+run
+plot v(VA) v(VB)+2 v(VC)+4 v(VD)+6 v(Vout)+8
+.end
+.endc

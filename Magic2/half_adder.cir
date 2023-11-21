@@ -1,0 +1,138 @@
+* SPICE3 file created from half_adder.ext - technology: scmos
+.include TSMC_180nm.txt
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd VDD gnd 'Supply'
+
+Vin_A VA gnd DC(0)
+Vin_B VB gnd DC(0)
+
+.option scale=0.09u
+
+M1000 VDD a_14_8# a_87_56# w_71_48# CMOSP w=8 l=4
++  ad=968 pd=418 as=136 ps=50
+M1001 VDD VB a_14_8# w_n2_0# CMOSP w=8 l=4
++  ad=0 pd=0 as=136 ps=50
+M1002 half_sum a_102_n53# a_188_n57# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=136 ps=50
+M1003 a_87_56# a_14_8# a_87_11# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=136 ps=50
+M1004 a_188_n57# a_87_56# GND Gnd CMOSN w=8 l=4
++  ad=0 pd=0 as=288 ps=168
+M1005 a_102_n98# a_14_8# GND Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1006 half_carry a_73_n160# GND Gnd CMOSN w=8 l=4
++  ad=48 pd=28 as=0 ps=0
+M1007 a_102_n53# VB a_102_n98# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1008 VDD VB a_73_n160# w_57_n168# CMOSP w=8 l=4
++  ad=0 pd=0 as=136 ps=50
+M1009 a_87_56# VA VDD w_71_48# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1010 VDD a_102_n53# half_sum w_172_n20# CMOSP w=8 l=4
++  ad=0 pd=0 as=136 ps=50
+M1011 a_73_n160# VA VDD w_57_n168# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1012 a_87_11# VA GND Gnd CMOSN w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1013 half_sum a_87_56# VDD w_172_n20# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1014 a_102_n53# a_14_8# VDD w_86_n61# CMOSP w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1015 a_14_8# VA VDD w_n2_0# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1016 a_14_n37# VA GND Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1017 a_73_n160# VB a_73_n205# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=136 ps=50
+M1018 a_73_n205# VA GND Gnd CMOSN w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1019 VDD VB a_102_n53# w_86_n61# CMOSP w=8 l=4
++  ad=0 pd=0 as=0 ps=0
+M1020 a_14_8# VB a_14_n37# Gnd CMOSN w=8 l=4
++  ad=136 pd=50 as=0 ps=0
+M1021 half_carry a_73_n160# VDD w_123_n168# CMOSP w=8 l=4
++  ad=48 pd=28 as=0 ps=0
+C0 w_172_n20# a_102_n53# 0.11fF
+C1 a_14_8# a_87_56# 0.10fF
+C2 w_57_n168# VB 0.11fF
+C3 VDD a_73_n160# 0.03fF
+C4 VA w_57_n168# 0.11fF
+C5 w_n2_0# VB 0.11fF
+C6 w_172_n20# a_87_56# 0.11fF
+C7 VDD half_sum 0.15fF
+C8 VDD w_86_n61# 0.05fF
+C9 VDD GND 0.09fF
+C10 VA w_n2_0# 0.11fF
+C11 VB a_73_n160# 0.29fF
+C12 a_14_8# w_n2_0# 0.03fF
+C13 w_123_n168# half_carry 0.03fF
+C14 VDD VB 0.30fF
+C15 w_86_n61# VB 0.11fF
+C16 VDD w_71_48# 0.05fF
+C17 VA a_73_n160# 0.03fF
+C18 VDD VA 0.09fF
+C19 GND VB 0.17fF
+C20 a_14_8# VDD 0.03fF
+C21 VDD a_102_n53# 0.03fF
+C22 a_102_n53# half_sum 0.10fF
+C23 a_14_8# w_86_n61# 0.11fF
+C24 a_14_8# GND 0.26fF
+C25 w_86_n61# a_102_n53# 0.03fF
+C26 a_102_n53# GND 0.09fF
+C27 VA VB 0.28fF
+C28 VDD w_172_n20# 0.05fF
+C29 half_carry a_73_n160# 0.03fF
+C30 w_172_n20# half_sum 0.03fF
+C31 a_14_8# VB 0.10fF
+C32 VDD a_87_56# 0.11fF
+C33 VDD half_carry 0.03fF
+C34 a_102_n53# VB 0.10fF
+C35 half_sum a_87_56# 0.03fF
+C36 VA w_71_48# 0.11fF
+C37 a_14_8# w_71_48# 0.11fF
+C38 w_123_n168# a_73_n160# 0.11fF
+C39 a_14_8# VA 0.03fF
+C40 VDD w_123_n168# 0.03fF
+C41 half_carry GND 0.03fF
+C42 w_57_n168# a_73_n160# 0.03fF
+C43 a_14_8# a_102_n53# 0.03fF
+C44 VDD w_57_n168# 0.05fF
+C45 a_87_56# w_71_48# 0.03fF
+C46 VA a_87_56# 0.03fF
+C47 VDD w_n2_0# 0.05fF
+C48 half_carry Gnd 0.12fF
+C49 a_73_n160# Gnd 0.55fF
+C50 half_sum Gnd 0.45fF
+C51 a_102_n53# Gnd 0.76fF
+C52 GND Gnd 5.96fF
+C53 VB Gnd 3.80fF
+C54 a_87_56# Gnd 0.88fF
+C55 VDD Gnd 0.04fF
+C56 a_14_8# Gnd 1.29fF
+C57 VA Gnd 2.41fF
+C58 w_123_n168# Gnd 0.67fF
+C59 w_57_n168# Gnd 1.45fF
+C60 w_86_n61# Gnd 1.45fF
+C61 w_172_n20# Gnd 1.45fF
+C62 w_n2_0# Gnd 0.31fF
+C63 w_71_48# Gnd 1.45fF
+
+.tran 1n 800n
+.control
+run
+plot v(VA) v(VB)+2 v(half_carry)+4 v(half_sum)+6
+.end
+.endc

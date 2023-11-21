@@ -1,0 +1,128 @@
+magic
+tech scmos
+timestamp 1700491361
+<< nwell >>
+rect 161 -15 284 9
+rect 292 -15 320 9
+<< ntransistor >>
+rect 173 -75 177 -67
+rect 194 -75 198 -67
+rect 215 -75 219 -67
+rect 236 -75 240 -67
+rect 304 -75 308 -67
+<< ptransistor >>
+rect 173 -7 177 1
+rect 194 -7 198 1
+rect 215 -7 219 1
+rect 236 -7 240 1
+rect 304 -7 308 1
+<< ndiffusion >>
+rect 167 -69 173 -67
+rect 167 -73 168 -69
+rect 172 -73 173 -69
+rect 167 -75 173 -73
+rect 177 -69 194 -67
+rect 177 -73 178 -69
+rect 182 -73 194 -69
+rect 177 -75 194 -73
+rect 198 -69 215 -67
+rect 198 -73 201 -69
+rect 205 -73 215 -69
+rect 198 -75 215 -73
+rect 219 -69 236 -67
+rect 219 -73 225 -69
+rect 229 -73 236 -69
+rect 219 -75 236 -73
+rect 240 -75 278 -67
+rect 298 -69 304 -67
+rect 298 -73 299 -69
+rect 303 -73 304 -69
+rect 298 -75 304 -73
+rect 308 -69 314 -67
+rect 308 -73 309 -69
+rect 313 -73 314 -69
+rect 308 -75 314 -73
+<< pdiffusion >>
+rect 167 -1 173 1
+rect 167 -5 168 -1
+rect 172 -5 173 -1
+rect 167 -7 173 -5
+rect 177 -7 194 1
+rect 198 -7 215 1
+rect 219 -7 236 1
+rect 240 -1 278 1
+rect 240 -5 252 -1
+rect 256 -5 278 -1
+rect 240 -7 278 -5
+rect 298 -1 304 1
+rect 298 -5 299 -1
+rect 303 -5 304 -1
+rect 298 -7 304 -5
+rect 308 -1 314 1
+rect 308 -5 309 -1
+rect 313 -5 314 -1
+rect 308 -7 314 -5
+<< ndcontact >>
+rect 168 -73 172 -69
+rect 178 -73 182 -69
+rect 201 -73 205 -69
+rect 225 -73 229 -69
+rect 299 -73 303 -69
+rect 309 -73 313 -69
+<< pdcontact >>
+rect 168 -5 172 -1
+rect 252 -5 256 -1
+rect 299 -5 303 -1
+rect 309 -5 313 -1
+<< polysilicon >>
+rect 173 1 177 4
+rect 194 1 198 4
+rect 215 1 219 4
+rect 236 1 240 4
+rect 304 1 308 4
+rect 173 -67 177 -7
+rect 194 -67 198 -7
+rect 215 -67 219 -7
+rect 236 -67 240 -7
+rect 304 -67 308 -7
+rect 173 -78 177 -75
+rect 194 -78 198 -75
+rect 215 -78 219 -75
+rect 236 -78 240 -75
+rect 304 -78 308 -75
+<< polycontact >>
+rect 169 -23 173 -19
+rect 190 -31 194 -27
+rect 211 -39 215 -35
+rect 232 -47 236 -43
+rect 300 -55 304 -51
+<< metal1 >>
+rect 161 17 320 21
+rect 168 -1 172 17
+rect 299 -1 303 17
+rect 165 -23 169 -19
+rect 165 -31 190 -27
+rect 165 -39 211 -35
+rect 165 -47 232 -43
+rect 252 -51 256 -5
+rect 309 -22 313 -5
+rect 309 -26 321 -22
+rect 178 -55 300 -51
+rect 178 -69 182 -55
+rect 252 -59 256 -55
+rect 225 -63 256 -59
+rect 225 -69 229 -63
+rect 309 -69 313 -26
+rect 168 -86 172 -73
+rect 201 -86 205 -73
+rect 299 -86 303 -73
+rect 161 -90 316 -86
+<< labels >>
+rlabel metal1 165 19 167 20 4 VDD
+rlabel metal1 166 -22 168 -21 1 VA
+rlabel metal1 313 -25 315 -24 1 Vout
+rlabel metal1 166 -30 168 -29 1 VB
+rlabel metal1 166 -38 168 -37 1 VC
+rlabel metal1 166 -46 168 -45 1 VD
+rlabel metal1 165 -89 167 -88 2 GND
+<< end >>
