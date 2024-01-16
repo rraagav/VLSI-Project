@@ -10,6 +10,9 @@ Inputs:
 The input from the user is two 4-Bit Numbers. For the sake of clarity, the select line combinations and their functions are listed below:
 
 Setting S1 = 0 and S0 = 0 performs Addition Operation.
+
 Setting S1 = 0 and S0 = 1 performs Subtraction Operation.
+
 Setting S1 = 1 and S0 = 0 performs Comparator Operation.
+
 Setting S1 = 1 and S0 = 1 performs ANDing Operation.
